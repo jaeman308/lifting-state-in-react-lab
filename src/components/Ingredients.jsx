@@ -1,7 +1,13 @@
-const IngredientsList = (props) => {
+import { availableIngredients } from "../App";
+
+const IngredientsList = ({availableIngredients, addToBurger}) => {
     return (
     <ul>
-        <button>Add</button>
+        {availableIngredients.map((ingredient, index) => (
+        <li key={index} style={{color: ingredient.color}}>
+            {ingredient.name}
+             <button onClick={() => addToBurger(ingredient)}>+</button>
+             </li>))}
     </ul>
 )};
 
